@@ -9,25 +9,25 @@ import mediaroute from "./routes/mediaroute.js";
 import perchaseroute from "./routes/Purchaseroute.js";
 
 dotenv.config();
-
 connectDB();
+
 const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(cors({
+app.use(
+  cors({
     origin: process.env.FRONTEND_URL,
-    credentials: true
-}));
+    credentials: true,
+  })
+);
 
+// API routes
 app.use("/api/v1/media", mediaroute);
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/course", courseRoute);
 app.use("/api/v1/purchase", perchaseroute);
 
-const port = process.env.PORT;
 
-app.listen(port, () => {
-    console.log(`server listen at port ${port}`);
-});
+export default app;
