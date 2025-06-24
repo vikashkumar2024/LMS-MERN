@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import { generateToken } from "../utils/genrateToken.js";
 import { deleteMediaFromCloudinary, uploadMedia } from "../utils/cloudinary.js";
 
-// Register a new user
+
 export const register = async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -43,7 +43,7 @@ export const register = async (req, res) => {
     }
 };
 
-// User login
+
 export const login = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -82,7 +82,7 @@ export const login = async (req, res) => {
     }
 };
 
-// User logout
+
 export const logout = async (req, res) => {
     try {
         return res.status(200)
@@ -100,11 +100,11 @@ export const logout = async (req, res) => {
     }
 };
 
-// Get user profile
+
 export const getUserProfile = async (req, res) => {
     try {
-        const userId = req.id; // Ensure `req.id` is correctly set from auth middleware
-        const user = await User.findById(userId).select("-password"); // Exclude password
+        const userId = req.id; 
+        const user = await User.findById(userId).select("-password"); 
 
         if (!user) {
             return res.status(404).json({
