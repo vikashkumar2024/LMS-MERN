@@ -9,7 +9,7 @@ cloudinary.config({
   api_secret: process.env.API_SECRET,
 });
 
-// ✅ Upload in-memory file (no fs, no disk write)
+
 export const uploadMedia = async (file) => {
   try {
     return await new Promise((resolve, reject) => {
@@ -28,7 +28,6 @@ export const uploadMedia = async (file) => {
   }
 };
 
-// ✅ Delete image (image/publicId)
 export const deleteMediaFromCloudinary = async (publicId) => {
   try {
     if (!publicId) return;
@@ -39,7 +38,7 @@ export const deleteMediaFromCloudinary = async (publicId) => {
   }
 };
 
-// ✅ Delete video (video/publicId)
+
 export const deleteVideoFromCloudinary = async (publicId) => {
   try {
     if (!publicId) return;
