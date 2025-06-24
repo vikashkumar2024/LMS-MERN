@@ -150,7 +150,7 @@ export const updateProfile = async (req, res) => {
       }
 
       // Upload new photo
-      const cloudResponse = await uploadMedia(profilePhoto.path);
+      const cloudResponse = await uploadMedia(profilePhoto);
       photoUrl = cloudResponse.secure_url;
     }
 

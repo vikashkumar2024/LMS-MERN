@@ -183,7 +183,7 @@ export const EditCourse = async (req, res) => {
         await deleteMediaFromCloudinary(publicId);
       }
 
-      const uploadedThumbnail = await uploadMedia(req.file.path);
+      const uploadedThumbnail = await uploadMedia(req.file);
       course.courseThumbneil = uploadedThumbnail.secure_url;
     }
 
